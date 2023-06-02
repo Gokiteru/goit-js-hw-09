@@ -13,9 +13,13 @@ function onFormSubmit(e) {
   const delayStep = e.currentTarget.step.valueAsNumber;
   const amountOfPromise = e.currentTarget.amount.valueAsNumber;
 
-  for (let position = 1; position <= amountOfPromise; position += 1) {
-    createPromise(position, mainDelay);
-    mainDelay += delayStep;
+  if (mainDelay >= 0 && delayStep >= 0 && amountOfPromise > 0) {
+    for (let position = 1; position <= amountOfPromise; position += 1) {
+      createPromise(position, mainDelay);
+      mainDelay += delayStep;
+    }
+  } else {
+    Notiflix.Notify.failure('❗️ Invalid values');
   }
 }
 

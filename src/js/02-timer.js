@@ -33,10 +33,14 @@ const options = {
     }
 
     refs.start.addEventListener('click', () => {
+      refs.input.disabled = true;
+      refs.start.disabled = true;
       intervalId = setInterval(() => {
         const differenceInTime = selectedDates[0] - new Date();
 
         if (differenceInTime < 1000) {
+          refs.input.disabled = false;
+          refs.start.disabled = false;
           clearInterval(intervalId);
         }
         const result = convertMs(differenceInTime);

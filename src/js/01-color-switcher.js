@@ -7,7 +7,7 @@ startButton.addEventListener('click', function () {
   stopButton.disabled = false;
   intervalId = setInterval(function () {
     document.body.style.backgroundColor = getRandomHexColor();
-  }, 100);
+  }, 1000);
 });
 
 stopButton.addEventListener('click', function () {
